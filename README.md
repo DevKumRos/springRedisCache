@@ -52,26 +52,6 @@ public class RedisServerConfiguration {
     }
 
 
-/*
-    @Bean
-    JedisConnectionFactory jedisConnectionFactory() {
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName(envParser.getHostName());
-        redisStandaloneConfiguration.setPort(envParser.getPort());
-        redisStandaloneConfiguration.setPassword(envParser.getPassword());
-
-        
-        JedisConnectionFactory factory = new JedisConnectionFactory(redisStandaloneConfiguration);
-        factory.getUsePool();
-        JedisPoolConfig poolConfig = (JedisPoolConfig) factory.getPoolConfig();
-        poolConfig.setMaxTotal(REDIS_POOL_MAX_ACTIVE);
-        poolConfig.setMinIdle(REDIS_POOL_MIN_IDLE);
-        poolConfig.setMaxIdle(REDIS_POOL_MAX_IDLE);
-        poolConfig.setTestOnBorrow(true);
-        poolConfig.setTestOnReturn(true);
-        return factory;
-    }*/
-
     @Bean
     RedisTemplate<String, ActivityTrackerNode> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<String, ActivityTrackerNode> redisTemplate = new RedisTemplate<>();
